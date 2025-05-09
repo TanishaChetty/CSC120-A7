@@ -32,23 +32,40 @@ public class Library extends Building {
 
   /**
   * returns the title we removed
+  * @param title the title of the book
+  * @return the title, or tells us we can't do that
   */
   public String removeTitle (String title){
-    collection.remove(title, true);
-    return title;
+    if (collection.contains(title)){
+      collection.remove(title, true);
+      return title;
+    } else {
+      return "Oops can't to that";
+
+    }
 
   }
 
   /**
   * checking out a book
+  * @param title the book
   */
   public void checkOut (String title){
-    collection.replace(title, true, false);
+    if (collection.contains(title)){
+      collection.replace(title, true, false);
+    } else {
+      System.out.println( "Oops can't to that");
+    }
+
+
+
+
 
   }
 
   /**
   * returning the book the the collection
+  * @param title the title of the book
   */
   public void returnBook (String title){
     collection.replace(title, false, true);
@@ -57,6 +74,8 @@ public class Library extends Building {
 
   /**
   * returns true if the title appears as a key in the Libary's collection, false otherwise
+  * @param title the title of the book
+  * @return boolean. if it works or not
   */
   public boolean containsTitle(String title){
     if (collection.contains(title)){
@@ -69,6 +88,8 @@ public class Library extends Building {
 
   /**
   * returns true if the title is currently available, false otherwise
+  * @param title the title of the book
+  * @return boolean for if it works or not
   */
   public boolean isAvailable(String title){
     if (collection.get(title) == true){
