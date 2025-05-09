@@ -40,7 +40,7 @@ public class Library extends Building {
       collection.remove(title, true);
       return title;
     } else {
-      return "Oops can't to that";
+      throw new UnsupportedOperationException("Oops you can't do that");
 
     }
 
@@ -54,7 +54,7 @@ public class Library extends Building {
     if (collection.contains(title)){
       collection.replace(title, true, false);
     } else {
-      System.out.println( "Oops can't to that");
+      throw new UnsupportedOperationException("Oops you can't do that");
     }
 
 
